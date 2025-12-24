@@ -1,20 +1,11 @@
-import './App.css'
-import { Button } from './components/ui/button'
-import { ToastContainer, toast } from 'react-toastify'
-import { Camera } from 'lucide-react'
+import './styles/App.css'
 
+import Home from '@/pages/Home'
 
 function App() {
-	    const notify = () => toast('Wow so easy!')
-  return (
-		<div>
-			<h1 className='text- text-3xl font-bold underline'> Hello world! </h1>
-			<Button>Song X zakaz pesni</Button>
-			<div>
-				<button onClick={notify}>Notify!</button>
-				<ToastContainer />
-			</div>
-			<Camera color='red' size={48} />;
+	return (
+		<div className='font-sans antialiased bg-surface-900 text-milk-50'>
+			<Home />
 		</div>
 	)
 }
