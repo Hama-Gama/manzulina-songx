@@ -9,6 +9,8 @@
 		}
 	],
 	"compilerOptions": {
+		"typeRoots": ["./src/types", "./node_modules/@types"],
+    "skipLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"]

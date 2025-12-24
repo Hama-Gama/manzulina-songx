@@ -1,5 +1,3 @@
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
 import { Youtube, Music, MessageCircle, Instagram } from 'lucide-react'
 
 export function Footer() {
