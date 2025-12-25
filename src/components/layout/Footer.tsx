@@ -3,7 +3,7 @@ import { Youtube, Music, MessageCircle, Instagram } from 'lucide-react'
 export function Footer() {
 	return (
 		<footer className='bg-surface-900 border-t border-surface-800'>
-			<div className='mx-auto max-w-6xl px-6 py-12 grid gap-8 md:grid-cols-3'>
+			<div className='mx-auto max-w-6xl px-1 py-8 grid gap-8 md:grid-cols-3'>
 				{/* Лого и слоган */}
 				<div>
 					<h2 className='text-2xl font-bold text-rose-500'>
@@ -35,7 +35,7 @@ export function Footer() {
 					<p className='text-sm text-milk-100'>Мы в соцсетях:</p>
 					<div className='flex gap-4'>
 						<a
-							href='https://wa.me/77000000000?text=Здравствуйте! Хочу заказать песню в SongX.'
+							href='https://wa.me/77073280265?text=Здравствуйте! Хочу заказать песню в SongX.'
 							target='_blank'
 							rel='noopener noreferrer'
 							className='text-milk-100 hover:text-rose-300'

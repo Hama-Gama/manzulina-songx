@@ -49,7 +49,7 @@ export function Header() {
 
 				{/* CTA WhatsApp */}
 				<a
-					href='https://wa.me/77000000000?text=Здравствуйте! Хочу заказать песню в SongX.'
+					href='https://wa.me/77073280265?text=Здравствуйте! Хочу заказать песню в SongX.'
 					target='_blank'
 					rel='noopener noreferrer'
 				>

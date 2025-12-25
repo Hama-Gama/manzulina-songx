@@ -12,10 +12,10 @@ const photos = [
 
 export function Gallery() {
 	return (
-		<section id='gallery' className='bg-surface-800 px-6 py-16'>
+		<section id='gallery' className='bg-surface-800 px-1 py-8'>
 			<div className='mx-auto max-w-6xl'>
 				<h2 className='text-3xl font-bold text-white'>Галерея</h2>
-				<p className='mt-2 text-sm text-white/70'>
+				<p className='mt-2 text-lg text-white/70'>
 					Несколько моментов, связанных с нашими песнями
 				</p>
 

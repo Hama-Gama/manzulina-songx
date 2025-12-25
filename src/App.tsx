@@ -5,7 +5,9 @@ import Home from '@/pages/Home'
 function App() {
 	return (
 		<div className='font-sans antialiased bg-surface-900 text-milk-50'>
-			<Home />
+			<div className='container mx-auto px-4'>
+				<Home />
+			</div>
 		</div>
 	)
 }

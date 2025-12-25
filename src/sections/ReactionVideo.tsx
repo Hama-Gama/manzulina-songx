@@ -4,10 +4,10 @@ export function ReactionVideo() {
 	const [play, setPlay] = useState(false)
 
 	return (
-		<section id='reaction' className='bg-surface-900 px-6 py-16'>
+		<section id='reaction' className='bg-surface-900 px-1 py-8'>
 			<div className='mx-auto max-w-4xl'>
 				<h2 className='text-3xl font-bold text-milk-50'>Реакция на подарок</h2>
-				<p className='mt-2 text-lavender-300 text-sm'>
+				<p className='mt-2 text-lavender-300 text-lg'>
 					Настоящие эмоции, когда дарят песню SongX
 				</p>
 
