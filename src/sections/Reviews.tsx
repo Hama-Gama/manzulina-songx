@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
 
-
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -65,14 +64,21 @@ export function Reviews() {
 									className='w-20 h-20 rounded-full object-cover ring-2 ring-lavender-500/30'
 								/>
 								<img
-									src='/images/cassette.png' // замените на ваш путь
+									src='/images/cassete.png'
 									alt='Кассета'
-									className='h-20 w-auto object-contain hidden sm:block'
+									className='
+									h-20 w-auto object-contain hidden sm:block
+									rounded-lg
+									sepia-[0.25]
+									contrast-110
+									saturate-90
+									shadow-[0_4px_10px_rgba(0,0,0,0.25)]
+	                '
 								/>
 							</div>
 
 							<p className='text-milk-50'>{r.text}</p>
-							<div className='mt-3 text-sm text-lavender-300'>
+							<div className='mt-3 text-sm text-lavender-300 mb-8'>
 								{r.name} • {r.tag}
 							</div>
 						</SwiperSlide>
@@ -82,4 +88,3 @@ export function Reviews() {
 		</section>
 	)
 }
-
