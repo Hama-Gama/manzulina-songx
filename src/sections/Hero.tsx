@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
+import { easeInOut } from 'framer-motion'
+
 
 export function Hero() {
 	// SVG-иконки: гитара, винил, микрофон, наушники, колонка, граммофон, нота
@@ -63,7 +65,7 @@ export function Hero() {
 		transition: {
 			duration: 6 + i * 0.7,
 			repeat: Infinity,
-			ease: 'easeInOut',
+			ease: easeInOut,
 		},
 	})
 

@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
+import { easeOut, motion } from 'framer-motion'
 
 export function Pricing() {
 	const tiers = [
@@ -26,7 +26,7 @@ export function Pricing() {
 			opacity: 1,
 			y: 0,
 			scale: 1,
-			transition: { duration: 0.6, ease: 'easeOut' },
+			transition: { duration: 0.8, ease: easeOut },
 		},
 	}
 
