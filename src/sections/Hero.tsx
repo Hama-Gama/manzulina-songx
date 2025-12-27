@@ -230,12 +230,12 @@ export function Hero() {
 					<span>Артикул:</span>
 
 					<code className='px-2 py-1 rounded bg-white/5 text-milk-50'>
-						41220050
+						612296730
 					</code>
 
 					<button
 						onClick={async () => {
-							await navigator.clipboard.writeText('41220050')
+							await navigator.clipboard.writeText('612296730')
 							setCopied(true)
 							setTimeout(() => setCopied(false), 1500)
 						}}
@@ -252,7 +252,7 @@ export function Hero() {
 
 				{/* Кнопка-картинка */}
 				<a
-					href='https://www.wildberries.ru/catalog/144967352/detail.aspx'
+					href='https://www.wildberries.ru/catalog/612296730/detail.aspx'
 					target='_blank'
 					rel='noopener noreferrer'
 					className='group mt-2'
