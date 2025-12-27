@@ -3,6 +3,10 @@ import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { easeInOut } from 'framer-motion'
 
+import { Copy, Check } from 'lucide-react'
+import { useState } from 'react'
+
+
 
 export function Hero() {
 	// SVG-иконки: гитара, винил, микрофон, наушники, колонка, граммофон, нота
@@ -71,6 +75,9 @@ export function Hero() {
 
 	const iconClass =
 		'absolute text-white/40 w-16 h-16 sm:w-16 sm:h-16 md:w-20 md:h-20'
+
+		const [copied, setCopied] = useState(false)
+
 
 	return (
 		<section
@@ -205,6 +212,65 @@ export function Hero() {
 				viewport={{ once: true, amount: 0.3 }}
 				transition={{ duration: 0.8, ease: 'easeOut' }}
 			/>
+
+			{/* Wildberries block */}
+			<motion.div
+				className='mt-10 flex flex-col items-center gap-4 relative z-10'
+				initial={{ opacity: 0, y: 40 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.3 }}
+				transition={{ duration: 0.6, ease: 'easeOut' }}
+			>
+				<p className='text-lg sm:text-xl text-milk-50 font-medium'>
+					Найти нас на <span className='text-fuchsia-400'>Wildberries</span>
+				</p>
+
+				{/* Артикул + копирование */}
+				<div className='flex items-center gap-2 text-lavender-300'>
+					<span>Артикул:</span>
+
+					<code className='px-2 py-1 rounded bg-white/5 text-milk-50'>
+						41220050
+					</code>
+
+					<button
+						onClick={async () => {
+							await navigator.clipboard.writeText('41220050')
+							setCopied(true)
+							setTimeout(() => setCopied(false), 1500)
+						}}
+						className='text-lavender-300 hover:text-milk-50 transition'
+						aria-label='Скопировать артикул'
+					>
+						{copied ? (
+							<Check className='w-4 h-4 text-emerald-400' />
+						) : (
+							<Copy className='w-4 h-4' />
+						)}
+					</button>
+				</div>
+
+				{/* Кнопка-картинка */}
+				<a
+					href='https://www.wildberries.ru/catalog/144967352/detail.aspx'
+					target='_blank'
+					rel='noopener noreferrer'
+					className='group mt-2'
+				>
+					<img
+						src='/images/wb-new.jpg'
+						alt='SongX на Wildberries'
+						className='
+        w-[260px] sm:w-[300px]
+        rounded-xl
+        shadow-soft
+        transition
+        group-hover:scale-[1.03]
+        group-hover:shadow-xl
+      '
+					/>
+				</a>
+			</motion.div>
 		</section>
 	)
 }
