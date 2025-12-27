@@ -3,7 +3,12 @@ import WaveSurfer from 'wavesurfer.js'
 import { Play, Pause } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const tracks = [
+type Track = {
+	title: string
+	src: string
+}
+
+const tracks: Track[] = [
 	{
 		title: 'Песня №1 — Мухаммад',
 		src: '/audio/Muhhamad.mp3',
@@ -18,29 +23,37 @@ const tracks = [
 	},
 ]
 
-const formatTime = time => {
+// ✅ ЯВНАЯ ТИПИЗАЦИЯ
+const formatTime = (time: number): string => {
 	const minutes = Math.floor(time / 60)
 	const seconds = Math.floor(time % 60)
 	return `${minutes}:${seconds.toString().padStart(2, '0')}`
 }
 
 export function AudioPlaylist() {
-	const waveRef = useRef(null)
-	const waveSurfer = useRef(null)
+	const waveContainerRef = useRef<HTMLDivElement | null>(null)
 
-	const [current, setCurrent] = useState(null)
-	const [isPlaying, setIsPlaying] = useState(false)
-	const [currentTime, setCurrentTime] = useState(0)
-	const [duration, setDuration] = useState(0)
+	// 🔥 КЛЮЧЕВОЙ МОМЕНТ
+	const waveSurferRef = useRef<WaveSurfer | null>(null)
 
+	const [currentIndex, setCurrentIndex] = useState<number | null>(null)
+	const [isPlaying, setIsPlaying] = useState<boolean>(false)
+	const [currentTime, setCurrentTime] = useState<number>(0)
+	const [duration, setDuration] = useState<number>(0)
+
+	// ✅ ИНИЦИАЛИЗАЦИЯ WAVESURFER
 	useEffect(() => {
-		if (current === null) return
-		if (!waveRef.current) return
+		if (currentIndex === null) return
+		if (!waveContainerRef.current) return
 
-		waveSurfer.current?.destroy()
+		// destroy старого инстанса
+		if (waveSurferRef.current) {
+			waveSurferRef.current.destroy()
+			waveSurferRef.current = null
+		}
 
-		waveSurfer.current = WaveSurfer.create({
-			container: waveRef.current,
+		const ws = WaveSurfer.create({
+			container: waveContainerRef.current,
 			waveColor: 'rgba(255,255,255,0.25)',
 			progressColor: '#ec4899',
 			cursorColor: '#f472b6',
@@ -50,60 +63,65 @@ export function AudioPlaylist() {
 			interact: true,
 		})
 
-		waveSurfer.current.load(tracks[current].src)
+		waveSurferRef.current = ws
 
-		waveSurfer.current.on('ready', () => {
-			setDuration(waveSurfer.current.getDuration())
-			waveSurfer.current.play()
+		ws.load(tracks[currentIndex].src)
+
+		ws.on('ready', () => {
+			setDuration(ws.getDuration())
+			ws.play()
 			setIsPlaying(true)
 		})
 
-		waveSurfer.current.on('audioprocess', () => {
-			setCurrentTime(waveSurfer.current.getCurrentTime())
+		ws.on('audioprocess', () => {
+			setCurrentTime(ws.getCurrentTime())
 		})
 
-		waveSurfer.current.on('interaction', () => {
-			setCurrentTime(waveSurfer.current.getCurrentTime())
+		ws.on('interaction', () => {
+			setCurrentTime(ws.getCurrentTime())
 		})
 
-		waveSurfer.current.on('finish', () => {
+		ws.on('finish', () => {
 			setIsPlaying(false)
 			setCurrentTime(0)
 		})
 
 		return () => {
-			waveSurfer.current?.destroy()
-			waveSurfer.current = null
+			ws.destroy()
+			waveSurferRef.current = null
 		}
-	}, [current])
+	}, [currentIndex])
 
-	const togglePlay = index => {
-		if (current === index) {
-			waveSurfer.current?.playPause()
-			setIsPlaying(waveSurfer.current?.isPlaying() ?? false)
+	// ✅ ЯВНАЯ ТИПИЗАЦИЯ index
+	const togglePlay = (index: number): void => {
+		if (currentIndex === index) {
+			if (!waveSurferRef.current) return
+
+			waveSurferRef.current.playPause()
+			setIsPlaying(waveSurferRef.current.isPlaying())
 		} else {
-			setCurrent(index)
+			setCurrentIndex(index)
 			setCurrentTime(0)
 		}
 	}
 
 	return (
 		<section className='w-full max-w-2xl mx-auto'>
-			{/* 🔹 TITLE + DESCRIPTION */}
+			{/* TITLE + DESCRIPTION */}
 			<div className='mb-8 text-center'>
 				<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50'>
 					Примеры песен, которые я исполнила на заказ
 				</h2>
-				<p className='mt-3 text-lavender-300 text-base sm:text-base max-w-xl mx-auto'>
+				<p className='mt-3 text-lavender-300 text-sm sm:text-base max-w-xl mx-auto'>
 					Каждая из этих песен была написана и спета специально для конкретного
 					человека. Твоя история может стать следующей.
 				</p>
 			</div>
 
-			{/* 🔹 PLAYLIST */}
+			{/* PLAYLIST */}
 			<div className='space-y-6'>
 				{tracks.map((track, index) => {
-					const active = current === index
+					const active = currentIndex === index
 
 					return (
 						<div
@@ -141,7 +159,7 @@ export function AudioPlaylist() {
 
 							{active && (
 								<div
-									ref={waveRef}
+									ref={waveContainerRef}
 									className='mt-4 w-full h-[64px] cursor-pointer select-none'
 								/>
 							)}
