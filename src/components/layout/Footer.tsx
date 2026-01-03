@@ -1,4 +1,4 @@
-import { Youtube, Music, MessageCircle, Instagram } from 'lucide-react'
+import { Youtube, Music, Instagram } from 'lucide-react'
 
 export function Footer() {
 	return (
