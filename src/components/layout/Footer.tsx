@@ -34,14 +34,14 @@ export function Footer() {
 				<div className='flex flex-col gap-3'>
 					<p className='text-sm text-milk-100'>Мы в соцсетях:</p>
 					<div className='flex gap-4'>
-						<a
+						{/* <a
 							href='https://wa.me/77073280265?text=Здравствуйте! Хочу заказать песню в SongX.'
 							target='_blank'
 							rel='noopener noreferrer'
 							className='text-milk-100 hover:text-rose-300'
 						>
 							<MessageCircle className='h-5 w-5' />
-						</a>
+						</a> */}
 						<a
 							href='https://instagram.com/songx'
 							target='_blank'

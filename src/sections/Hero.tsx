@@ -82,7 +82,7 @@ export function Hero() {
 	return (
 		<section
 			id='hero'
-			className='relative flex flex-col items-center justify-center bg-surface-900 text-center px-6 py-24 sm:py-32 overflow-hidden'
+			className='relative flex flex-col items-center justify-center bg-surface-900 text-center px-2 py-24 sm:py-32 overflow-hidden'
 		>
 			{/* Фоновые SVG */}
 			<div className='absolute inset-0 pointer-events-none'>
@@ -137,46 +137,46 @@ export function Hero() {
 					}}
 					className='flex flex-col items-center'
 				>
-					<motion.p
-						className='mt-6 text-lg sm:text-xl text-lavender-300'
-						variants={{
-							hidden: { opacity: 0, y: 30 },
-							visible: {
-								opacity: 1,
-								y: 0,
-								transition: { duration: 0.8, ease: 'easeOut', type: 'spring' },
-							},
-						}}
-					>
-						Это больше, чем просто песня.
-					</motion.p>
-					<motion.p
-						className='mt-2 text-lg sm:text-xl text-lavender-300'
-						variants={{
-							hidden: { opacity: 0, y: 30 },
-							visible: {
-								opacity: 1,
-								y: 0,
-								transition: { duration: 0.8, ease: 'easeOut', type: 'spring' },
-							},
-						}}
-					>
-						Твоя жизнь — сюжет.
-					</motion.p>
-					<motion.p
-						className='mt-2 text-lg sm:text-xl text-lavender-300'
-						variants={{
-							hidden: { opacity: 0, y: 30 },
-							visible: {
-								opacity: 1,
-								y: 0,
-								transition: { duration: 0.8, ease: 'easeOut', type: 'spring' },
-							},
-						}}
-					>
-						Наша роль — музыка.
-					</motion.p>
+				
+				<div className='mt-10 max-w-3xl text-center'>
+					<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50 mb-4'>
+						Кому заказывают песни в SongX
+					</h2>
+
+					<ul className='text-lg sm:text-xl text-lavender-300 space-y-2'>
+						<li>❤️ Любимому / любимой</li>
+						<li>👨‍👩‍👧‍👦 Семье, родителям</li>
+						<li>🤍 Подруге или другу</li>
+						<li>💍 На свадьбу, годовщину</li>
+						<li>🎂 На день рождения</li>
+						<li>💌 Просто сказать «я люблю тебя»</li>
+					</ul>
+				</div>
+
+				<div className='mt-14 max-w-3xl text-center'>
+					<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50 mb-6'>
+						Как создаётся песня
+					</h2>
+
+					<div className='text-lg sm:text-xl text-lavender-300 space-y-3 text-left'>
+						<p>1️⃣ Вы оставляете заявку, написав нам на WhatsApp</p>
+						<p>2️⃣ Рассказываете, для кого и по какому поводу</p>
+						<p>3️⃣ Мы пишем текст и музыку</p>
+						<p>4️⃣ Вы получаете готовую песню</p>
+					</div>
+
+					<p className='text-base mt-6 text-milk-50 font-medium'>
+						Без шаблонов. Каждая песня — уникальна.
+					</p>
+					<p className='text-base mt-6 text-milk-50 font-medium'>
+						Стандартный срок изготовления песни 3-5 дней. Есть также экспресс
+						услуга
+					</p>
+				</div>
+				
+					
 				</motion.div>
+
 
 				<motion.div
 					className='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4'
@@ -202,16 +202,6 @@ export function Hero() {
 					</span>
 				</motion.div>
 			</div>
-
-			<motion.img
-				src='/images/cassette-hero.png'
-				alt='SongX cassette'
-				className='mt-16 w-[280px] sm:w-[360px] md:w-[420px] relative z-10'
-				initial={{ opacity: 0, y: 60, rotate: -10 }}
-				whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-				viewport={{ once: true, amount: 0.3 }}
-				transition={{ duration: 0.8, ease: 'easeOut' }}
-			/>
 
 			{/* Wildberries block */}
 			<motion.div
