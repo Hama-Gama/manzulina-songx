@@ -1,7 +1,3 @@
-
-
-
-
 const reviews = [
 	{
 		name: 'Для детей',
@@ -73,7 +69,7 @@ function ReviewCard({
 
 export function Reviews() {
 	return (
-		<section id='reviews' className='bg-surface-900 px-4 py-12'>
+		<section id='reviews' className='bg-surface-900 px-2 py-12'>
 			<div className='mx-auto max-w-6xl'>
 				<h2 className='text-3xl font-bold text-milk-50'>Отзывы</h2>
 				<p className='mt-2 text-lg text-lavender-300'>

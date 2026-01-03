@@ -107,14 +107,34 @@ export function Hero() {
 
 			{/* Контент */}
 			<div className='max-w-4xl flex flex-col items-center relative z-10'>
-				<motion.img
-					src='/logo.png'
-					alt='SongX logo'
-					className='w-[280px] sm:w-[360px] md:w-[420px] mb-10 rounded-full'
-					initial={{ opacity: 0, scale: 0.8 }}
-					animate={{ opacity: 1, scale: 1 }}
-					transition={{ duration: 0.8, ease: 'easeOut' }}
-				/>
+				<motion.div
+					className='mb-10 rounded-full'
+					initial={{ opacity: 0, scale: 0.85 }}
+					animate={{
+						opacity: 1,
+						scale: 1,
+						filter: [
+							'drop-shadow(0 0 18px rgba(244, 63, 94, 0.55)) drop-shadow(0 0 36px rgba(217, 70, 239, 0.35))',
+							'drop-shadow(0 0 26px rgba(244, 63, 94, 0.75)) drop-shadow(0 0 52px rgba(217, 70, 239, 0.55))',
+							'drop-shadow(0 0 18px rgba(244, 63, 94, 0.55)) drop-shadow(0 0 36px rgba(217, 70, 239, 0.35))',
+						],
+					}}
+					transition={{
+						opacity: { duration: 0.8, ease: 'easeOut' },
+						scale: { duration: 0.8, ease: 'easeOut' },
+						filter: {
+							duration: 4,
+							repeat: Infinity,
+							ease: 'easeInOut',
+						},
+					}}
+				>
+					<img
+						src='/logo.png'
+						alt='SongX logo'
+						className='w-[280px] sm:w-[360px] md:w-[420px] rounded-full'
+					/>
+				</motion.div>
 
 				<motion.h1
 					className='text-4xl sm:text-5xl font-bold text-milk-50 leading-tight'
@@ -137,46 +157,42 @@ export function Hero() {
 					}}
 					className='flex flex-col items-center'
 				>
-				
-				<div className='mt-10 max-w-3xl text-center'>
-					<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50 mb-4'>
-						Кому заказывают песни в SongX
-					</h2>
+					<div className='mt-10 max-w-3xl text-center'>
+						<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50 mb-4'>
+							Кому заказывают песни в SongX
+						</h2>
 
-					<ul className='text-lg sm:text-xl text-lavender-300 space-y-2'>
-						<li>❤️ Любимому / любимой</li>
-						<li>👨‍👩‍👧‍👦 Семье, родителям</li>
-						<li>🤍 Подруге или другу</li>
-						<li>💍 На свадьбу, годовщину</li>
-						<li>🎂 На день рождения</li>
-						<li>💌 Просто сказать «я люблю тебя»</li>
-					</ul>
-				</div>
-
-				<div className='mt-14 max-w-3xl text-center'>
-					<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50 mb-6'>
-						Как создаётся песня
-					</h2>
-
-					<div className='text-lg sm:text-xl text-lavender-300 space-y-3 text-left'>
-						<p>1️⃣ Вы оставляете заявку, написав нам на WhatsApp</p>
-						<p>2️⃣ Рассказываете, для кого и по какому поводу</p>
-						<p>3️⃣ Мы пишем текст и музыку</p>
-						<p>4️⃣ Вы получаете готовую песню</p>
+						<ul className='text-lg sm:text-xl text-lavender-300 space-y-2'>
+							<li>❤️ Любимому / любимой</li>
+							<li>👨‍👩‍👧‍👦 Семье, родителям</li>
+							<li>🤍 Подруге или другу</li>
+							<li>💍 На свадьбу, годовщину</li>
+							<li>🎂 На день рождения</li>
+							<li>💌 Просто сказать «я люблю тебя»</li>
+						</ul>
 					</div>
 
-					<p className='text-base mt-6 text-milk-50 font-medium'>
-						Без шаблонов. Каждая песня — уникальна.
-					</p>
-					<p className='text-base mt-6 text-milk-50 font-medium'>
-						Стандартный срок изготовления песни 3-5 дней. Есть также экспресс
-						услуга
-					</p>
-				</div>
-				
-					
-				</motion.div>
+					<div className='mt-14 max-w-3xl text-center'>
+						<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50 mb-6'>
+							Как создаётся песня
+						</h2>
 
+						<div className='text-lg sm:text-xl text-lavender-300 space-y-3 text-left'>
+							<p>1️⃣ Вы оставляете заявку, написав нам на WhatsApp</p>
+							<p>2️⃣ Рассказываете, для кого и по какому поводу</p>
+							<p>3️⃣ Мы пишем текст и музыку</p>
+							<p>4️⃣ Вы получаете готовую песню</p>
+						</div>
+
+						<p className='text-base mt-6 text-milk-50 font-medium'>
+							Без шаблонов. Каждая песня — уникальна.
+						</p>
+						<p className='text-base mt-6 text-milk-50 font-medium'>
+							Стандартный срок изготовления песни 3-5 дней. Есть также экспресс
+							услуга
+						</p>
+					</div>
+				</motion.div>
 
 				<motion.div
 					className='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4'
