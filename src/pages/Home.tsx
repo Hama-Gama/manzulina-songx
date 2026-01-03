@@ -6,7 +6,6 @@ import { Hero } from '@/sections/Hero'
 import { Pricing } from '@/sections/Pricing'
 import { FAQ } from '@/sections/FAQ'
 import { Reviews } from '@/sections/Reviews'
-import { Gallery } from '@/sections/Gallery'
 import { ReactionVideo } from '@/sections/ReactionVideo'
 import { AudioPlaylist } from '@/sections/AudioPlaylist'
 
@@ -23,7 +22,6 @@ export default function Home() {
 				<Pricing />
 				<FAQ />
 				<Reviews />
-				<Gallery />
 				<ReactionVideo />
 			</main>
 

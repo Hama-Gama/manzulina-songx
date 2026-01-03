@@ -110,7 +110,7 @@ export function AudioPlaylist() {
 			{/* TITLE + DESCRIPTION */}
 			<div className='mb-8 text-center'>
 				<h2 className='text-2xl sm:text-3xl font-semibold text-milk-50'>
-					Примеры песен, которые я исполнила на заказ
+					Примеры песен
 				</h2>
 				<p className='mt-3 text-lavender-300 text-sm sm:text-base max-w-xl mx-auto'>
 					Каждая из этих песен была написана и спета специально для конкретного
